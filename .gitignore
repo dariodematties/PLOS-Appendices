@@ -1,0 +1,12 @@
+# Ignore output files from latex
+
+*.aux
+*.bbl
+*.blg
+*.glo
+*.xdy
+*.log
+Appendices.pdf
+*.swp
+*.out
+
