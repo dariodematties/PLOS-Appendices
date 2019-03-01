@@ -33,7 +33,7 @@
 \chapter{Computational Setup}
 \label{Comp_setup}
 
-In this appendix we inlude the Computational Setup of our \gls{cstm}, which describes its object oriented inheritance structure as well as the parallelization strategy used for its implementation in \gls{hpc} resources. This appendix also includes preliminary Strong and Weak Scaling tests of our code on \gls{hpc} resources.
+In this appendix we include the Computational Setup of our \gls{cstm}, which describes its object-oriented design as well as the parallelization strategy used for its implementation in \gls{hpc} resources. This appendix also includes preliminary Strong and Weak Scaling tests of our code on \gls{hpc} resources.
 
 
 \section{Inheritance and Compositional Structure}
@@ -79,13 +79,13 @@ We parallelized the \gls{el} class by means of a hybrid \gls{mpi}+\gls{omp} para
 
 The implementation has Checkpoint and Restart capacity in its training stage where there is total flexibility in terms of the number of ranks with which the execution is restarted. A cortical layer could have been saved with $n$ ranks and such layer could be restarted with $m$ ranks without affecting the final results.
 
-It is important to mention that the number of \glspl{cc} shown in Fig. \ref{fig:EncoderParallelization} is merely illustrative and does not reflect the real numbers in terms of computational resources used for this implementation. 
+It is important to note that the number of \glspl{cc} shown in Fig. \ref{fig:EncoderParallelization} is merely illustrative and does not reflect the real numbers in terms of computational resources used for this implementation. 
 
 We performed all computational experiments on Cooley, a visualization and analysis cluster at Argonne National Laboratory. We ran the simulations using 25 nodes (9 \glspl{cc} per node and one node per \gls{mpi} rank) and 9 OpenMP threads per node/rank (one thread per \gls{cc}).
 
 \section{Initial Strong and Weak Scaling Tests on Cooley}
 
-Beyond the fact that our computational approach is intended to be applied in leadership supercomputers in the future, in the present work an essential step is to test our code in order to see how it uses the resources provided by Cooley Nodes. Parallel scalability is a measurement that indicates how efficient is our code when using increasing numbers of parallel processing elements--Nodes or Processes and \glspl{cpu} or Threads on Cooley. Fig. \ref{fig:Strong_Weak} shows the scaling capacity of our code in terms of run time vs. number of processing elements used for the task. In our tests we always constrain our code to run one \gls{mpi} rank per Cooley node. Each \gls{mpi} rank spreads an specific number of threads through the different \glspl{cpu} in its corresponding node (Fig. \ref{fig:EncoderParallelization} A and B). There are two ways to measure the parallel performance of a given application. The measure to be applied will depend on whether the application is \gls{cpu}-bound or memory-bound. Such measurements are referred to as \emph{strong} and \emph{weak} scaling, respectively.
+Beyond the notion that our computational approach is intended to be applied in leadership supercomputers in the future, in the present work an essential step is to test our code in order to see how it uses the resources provided by Cooley Nodes. Parallel scalability is a measurement that indicates how efficient is our code when using increasing numbers of parallel processing elements--Nodes or Processes and \glspl{cpu} or Threads on Cooley. Fig. \ref{fig:Strong_Weak} shows the scaling capacity of our code in terms of run time vs. number of processing elements used for the task. In our tests we always constrain our code to run one \gls{mpi} rank per Cooley node. Each \gls{mpi} rank spreads an specific number of threads through the different \glspl{cpu} in its corresponding node (Fig. \ref{fig:EncoderParallelization} A and B). There are two ways to measure the parallel performance of a given application. The measure to be applied will depend on whether the application is \gls{cpu}-bound or memory-bound. Such measurements are referred to as \emph{strong} and \emph{weak} scaling, respectively.
 
 \begin{figure}[h!]
     \centering
@@ -106,7 +106,7 @@ This appendix includes a battery of complementary experiments showing the classi
 
 \section{Word Classification Performance Tests}
 
-The \gls{el} have shown a prominent superiority in the classification performance. In order to attain the appropriate configuration on the parameters describing the structure of the model, we produced a swept of models with different sizes in the \gls{el}. We progressively increased the number of cortical columns (CCs) as well as the distal receptive fields in the \gls{el} and tested the corresponding phonetic classification performances.
+The \gls{el} has shown exceptional classification performance. In order to attain the appropriate configuration on the parameters describing the structure of the model, we produced a swept of models with different sizes in the \gls{el}. We progressively increased the number of cortical columns (CCs) as well as the distal receptive fields in the \gls{el} and tested the corresponding phonetic classification performances.
 
 In Fig.~\ref{fig:WordClassification2} we show the initialization parameters for the different \glspl{el}.
 
@@ -131,11 +131,11 @@ Fig.~\ref{fig:WordClassification3} shows the average phonetic word classificatio
 
 From Fig.~\ref{fig:WordClassification3}, a clear tendency of the performance can also be seen where the classification accuracy grows with the size of the 4 first \glspl{el}. Bigger models with larger numbers of \glspl{cc} present more phonetic hypotheses which could allow better probabilistic inference in the sequential processing task. It is also known that smaller models suffer from a distal dendrite sparsity which generates repetitive \glspl{mfe} and a lack of \glspl{sdr} whose origins are prediction faults produced in the processing of the stream of data. In this way, a modification in some parameters of the model, could affect others in unpredictable ways and a comprehensive study of such phenomena far exceeds the purpose of the current research. Regardless of that, we consider that the present battery of experiments shows a sound initial parameter configuration as to pose an appropriate \gls{el} arrangement.
 
-\section{Experimental Data to run the Tests}
+\section{Experimental Data to Run the Tests}
 
-For this battery of experiments we generated corpora of 500 words with mono, di and trisyllabic English words with vocabularies of five words using Festival Text to Speech Synthesis.
+For the entire collection of experiments we generated corpora of 500 words with mono, di and trisyllabic English words with vocabularies of five words using Festival Text to Speech Synthesis.
 
-The Vocabularies used:
+The vocabularies used including the following:
 
 \begin{itemize}
 	\item Monosyllabic vocabulary: \textit{map, dog, mouse, with} and \textit{truck}.
@@ -143,7 +143,7 @@ The Vocabularies used:
 	\item Trisyllabic vocabulary: \textit{computer, telephone, rectangle, tomato} and \textit{magazine}.
 \end{itemize}
 
-The Voices used:
+The Voices used include the following:
 
 We use the following English speaking voices provided by Festival: \texttt{cmu\_us\_fem\_cg, cmu\_us\_gka\_cg, cmu\_us\_ksp\_cg, cmu\_us\_rxr\_cg, cmu\_us\_jmk\_cg, cmu\_us\_rms\_cg, cmu\_us\_slt\_cg, cmu\_us\_jmk\_arctic\_clunits, cmu\_us\_rms\_arctic\_clunits, cmu\_us\_slt\_arctic\_clunits}.
 
